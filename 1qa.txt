@@ -1,0 +1,297 @@
+mybatis缓存机制
+
+后端技术精选  今天
+题外话：欢迎将公众号设置为星标，技术文章第一时间看到。我们将一如既往精选技术好文，提供有价值的阅读。如有读者想要投稿，可以在公众号任意文章下留言，技术博主奖励丰厚。
+推荐阅读
+1. SpringBoot 整合篇
+2. 手写一套迷你版HTTP服务器
+3. 记住：永远不要在MySQL中使用UTF-8
+4. Springboot启动原理解析
+
+mybatis支持一、二级缓存来提高查询效率，能够正确的使用缓存的前提是熟悉mybatis的缓存实现原理；
+
+众所周知，mybatis的sqlSession封装了对数据库的增删改查操作，但是每个SqlSession持有各自的Executor，真正的操作是委托给Executor操作的，而缓存功能也同样是交给了Executor实现；
+
+Executor和缓存
+
+下面看一段Configuration类创建执行器的代码：
+
+public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
+    executorType = executorType == null ? defaultExecutorType : executorType;
+    executorType = executorType == null ? ExecutorType.SIMPLE : executorType;
+    Executor executor;
+    if (ExecutorType.BATCH == executorType) {
+      executor = new BatchExecutor(this, transaction);
+    } else if (ExecutorType.REUSE == executorType) {
+      executor = new ReuseExecutor(this, transaction);
+    } else {
+      executor = new SimpleExecutor(this, transaction);
+    }
+    //如果开启了缓存则使用CachingExecutor装饰
+    //cacheEnabled实际上是二级缓存开关，默认也是开启的
+    //只是二级缓存需要额外的配置所有并不生效
+    if (cacheEnabled) {
+      executor = new CachingExecutor(executor);
+    }
+    executor = (Executor) interceptorChain.pluginAll(executor);
+    return executor;
+  }
+mybatis可选配置的执行器有三种，分别是SimpleExecutor、ReuseExecutor和BatchExecutor，默认是SimpleExecutor；除此之外还有一个重要的执行器是CachingExecutor，根据名称即可推断它与缓存是相关的；看类图：
+
+
+
+我们发现BaseExecutor和CachingExecutor实现了Executor接口，BaseExecutor是一个抽象类，它有三个子类（实际上还有一个ClosedExecutor）
+
+一级缓存
+
+mybatis一级缓存是在BaseExecutor中实现的，也相当于一级缓存是默认开启的；Cache对象是在BaseExecutor构造方法中创建的，因此一个Executor对应一个locaCache,下面看一下BaseExecutor中的query方法：
+
+ public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
+    ErrorContext.instance().resource(ms.getResource()).activity("executing a query").object(ms.getId());
+    if (closed) throw new ExecutorException("Executor was closed.");
+    if (queryStack == 0 && ms.isFlushCacheRequired()) {
+      clearLocalCache();
+    }
+    List<E> list;
+    try {
+      queryStack++;
+      //从一级缓存中取缓存（我们通常的查询中是不需要resultHandler的）
+      list = resultHandler == null ? (List<E>) localCache.getObject(key) : null;
+      if (list != null) {
+        //handleLocallyCachedOutputParameters这个只对存储过程有效
+        handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
+      } else {
+        //如果为空则从数据库查询
+        list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
+      }
+    } finally {
+      queryStack--;
+    }
+    if (queryStack == 0) {
+      for (DeferredLoad deferredLoad : deferredLoads) {
+        deferredLoad.load();
+      }
+      deferredLoads.clear(); // issue #601
+      //如果一级缓存的范围是statement级别，则每次查询都清空一级缓存
+      if (configuration.getLocalCacheScope() == LocalCacheScope.STATEMENT) {
+        clearLocalCache(); // issue #482
+      }
+    }
+    return list;
+  }
+因此，在不考虑二级缓存的情况下，每次查询都从一级缓存中取，如果没有命中缓存，则从数据库查询，并将查询结果加入缓存；这只是一级缓存的存取，接下来还要知道缓存何时失效。
+
+其实我们可以推测一下，如果数据库更新了，但是缓存并没有失效，那么缓存的数据就成了脏数据，所以缓存失效肯定和更新操作有关，但是这个更新就有范围了，是更新操作清除所有缓存（全局）？还是同一个SQLSession的更新操作清除当前SQLSession的缓存呢？
+
+通过文档和源码我们知道LocalCacheScope有两个级别，分别是statement和session；从query方法已经知道statement级别每次查询都清除缓存，这也是一级缓存默认的级别；
+
+那么session级别呢？
+
+下面看BaseExecutor的update方法（SqlSesssion的insert、update、delete操作最后都会执行此方法）：
+
+public int update(MappedStatement ms, Object parameter) throws SQLException {
+    ErrorContext.instance().resource(ms.getResource()).activity("executing an update").object(ms.getId());
+    if (closed) throw new ExecutorException("Executor was closed.");
+    //清除缓存
+    clearLocalCache();
+    return doUpdate(ms, parameter);
+  }
+可以看到如果是session级别，在update操作的时候清除缓存；但是有两点要注意：
+
+一、为什么叫做session级别？
+
+同一个SqlSession持有同一个Executor，同一个Executor持有同一个LocalCache,clearLocalCache操作只是清除当前executor的本地缓存，因此session级别的缓存就是对同一个SqlSession生效。
+
+二、缓存失效的时机
+
+可以看到清除缓存是在doUpdate（真正的更新操作）操作之前执行的，也就是说doUpdate执行成功或失败、提交或者回滚 缓存都会失效；
+
+小结
+
+MyBatis一级缓存使用没有容量限制的HashMap,比较简陋；
+statement级别的缓存每一次查询后清除；
+session级别缓存在同一个SqlSession的insert、update、delete操作之前清除；
+MyBatis的一级缓存最大是同一个SqlSession，在多个SqlSession环境下就会出现数据修改后缓存无法及时失效的情况产生脏数据；
+二级缓存
+
+前面我们知道二级缓存开启后Executor会使用CachingExecutor装饰；那就来看看它的query方法：
+
+public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql)
+      throws SQLException {
+    //获取此查询对应的缓存对象
+    Cache cache = ms.getCache();
+    if (cache != null) {
+      //是否立即清除缓存，这个是statement标签中flushCache属性控制的，select标签默认false，其它标签默认true；
+      flushCacheIfRequired(ms);
+      if (ms.isUseCache() && resultHandler == null) {
+        //关于存储过程暂不考虑
+        //isUseCache()的值是statement标签中useCache配置的，默认为true
+        ensureNoOutParams(ms, parameterObject, boundSql);
+        @SuppressWarnings("unchecked")
+        //从二级缓存获取
+        List<E> list = (List<E>) tcm.getObject(cache, key);
+        if (list == null) {
+          list = delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
+          tcm.putObject(cache, key, list); // issue #578. Query must be not synchronized to prevent deadlocks
+        }
+        return list;
+      }
+    }
+    return delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
+  }
+这里从查询缓存和加入缓存用的是tcm（TransactionalCacheManager）的getObject和putObject方法，稍稍看一下这个类：
+
+  public class TransactionalCacheManager {
+  //维护TransactionalCache 和 Cache 一对一的这样一个映射关系
+  private Map<Cache, TransactionalCache> transactionalCaches = new HashMap<Cache, TransactionalCache>();
+  //清除缓存
+  public void clear(Cache cache) {
+    getTransactionalCache(cache).clear();
+  }
+  //从缓存获取结果
+  public Object getObject(Cache cache, CacheKey key) {
+    return getTransactionalCache(cache).getObject(key);
+  }
+  //加入缓存（真正加入还要等commit）
+  public void putObject(Cache cache, CacheKey key, Object value) {
+    getTransactionalCache(cache).putObject(key, value);
+  }
+   //省略一部分
+   。。。。。。。
+
+  private TransactionalCache getTransactionalCache(Cache cache) {
+    TransactionalCache txCache = transactionalCaches.get(cache);
+    if (txCache == null) {
+      //使用TransactionalCache装饰Cache
+      txCache = new TransactionalCache(cache);
+      transactionalCaches.put(cache, txCache);
+    }
+    return txCache;
+  }
+
+}
+这里我们只需要知道关于缓存的操作最终还是委托给Cache类的，其它的暂不深入，回到CacheExecutor类，Cache对象是从MappedStatement（对应就是select、update等sql标签）中获取的，而Cache也不是在MappedStatement中创建的，但是我们知道mybatis的namespace中关于缓存有如下两个标签：
+
+//表示此namespace要使用二级缓存
+<cache/>
+属性
+type：cache使用的类型，默认是PerpetualCache；
+eviction： 缓存策略，常见的有FIFO，LRU；
+flushInterval： 自动刷新缓存时间间隔，单位是毫秒。
+size： 缓存的对象数量最大值。
+readOnly： 是否只读，false时需要实现Serializable接口，默认false。
+blocking： 若缓存中找不到对应的key，是否会一直blocking，直到有对应的数据进入缓存。
+//引用其它namespace的缓存
+<cache-ref namespace="mapper.StudentMapper"/>
+可以猜测，Cache的创建在解析namespace标签之后，所以从XmlConfigBuilder（解析配置文件的关键类）一路找到XMLMapperBuilder（根据名称就知道是解析mapper相关的配置也就是namespace标签下的内容）：
+
+ //创建缓存对象 
+  private void cacheElement(XNode context) throws Exception {
+    if (context != null) {
+      //获取<cache/>标签配置
+      ....
+      //创建Cache对象
+      builderAssistant.useNewCache(typeClass, evictionClass, flushInterval, size, readWrite, props);
+    }
+  }
+接着看builderAssistant的useNewCache方法：
+
+public Cache useNewCache(Class<? extends Cache> typeClass,
+     Class<? extends Cache> evictionClass,
+     Long flushInterval,
+     Integer size,
+     boolean readWrite,
+     Properties props) {
+   typeClass = valueOrDefault(typeClass, PerpetualCache.class);
+   evictionClass = valueOrDefault(evictionClass, LruCache.class);
+   //将namespace作为Cache的id
+   Cache cache = new CacheBuilder(currentNamespace)
+       .implementation(typeClass)
+       .addDecorator(evictionClass)
+       .clearInterval(flushInterval)
+       .size(size)
+       .readWrite(readWrite)
+       .properties(props)
+       .build();
+   //将Cache放入Configuration中
+   //Configuration中维护一个Map，键是Cache的id也就是namespace
+   configuration.addCache(cache);
+   currentCache = cache;
+   return cache;
+ }
+这里我们知道解析namespace的cache标签马上会为此namespace创建一个Cache对象；那么cache-ref标签呢？同样是XMLMapperBuilder类：
+
+private void cacheRefElement(XNode context) {
+    if (context != null) {
+      configuration.addCacheRef(builderAssistant.getCurrentNamespace(), context.getStringAttribute("namespace"));
+      CacheRefResolver cacheRefResolver = new CacheRefResolver(builderAssistant, context.getStringAttribute("namespace"));
+      try {
+          cacheRefResolver.resolveCacheRef();
+      } catch (IncompleteElementException e) {
+          configuration.addIncompleteCacheRef(cacheRefResolver);
+      }
+    }
+  }
+Configuration类有一个map保存的是cache-ref标签声明的引用关系，CacheRefResolver就是去获取引用的namespace的Cache对象，这时如果引用的Cache还没有创建怎么办？
+
+mybatis是将它放在了IncompleteCacheRef的集合中，最后再去重新去处理引用；到这里我们知道了Cache的创建，但是我还记得CacheExecutor中的Cache是从MappedStatement中取的啊！
+
+那是因为XMLStatementBuilder在创建namespace下的MappedStatement时候就将XMLMapperBuilder中创建的Cache注入其中了，因此同一个namespace下的MappedStatement持有的是同一个Cache对象，如果namespace之间是引用关系，那么也是同一个Cache对象；到这里已经弄清楚了MappedStatement中Cache的来历；
+
+再回到CachingExecutor中的清除缓存的方法：
+
+ private void flushCacheIfRequired(MappedStatement ms) {
+    Cache cache = ms.getCache();
+    if (cache != null && ms.isFlushCacheRequired()) {      
+      tcm.clear(cache);
+    }
+  }
+ms.isFlushCacheRequired()的值是statement标签中flushCache属性控制的，select标签默认false，其它标签默认true；
+
+这里clear方法并没有清除缓存，而是设置了一个标志位 clearOnCommit = true;顾名思义在提交的时候清除；除此之外，tcm（TransactionalCacheManager）的put和remove操作也只是将动作临时存放在map中,commit 的时候才真正执行：
+
+public void commit() {
+    if (clearOnCommit) {
+      //清除缓存    
+      delegate.clear();
+    } else {
+      //执行暂存的操作
+      for (RemoveEntry entry : entriesToRemoveOnCommit.values()) {
+        entry.commit();
+      }
+    }
+    for (AddEntry entry : entriesToAddOnCommit.values()) {
+      entry.commit();
+    }
+    reset();
+  }
+ //rollback重置，不对缓存操作
+ public void rollback() {
+    reset();
+  }
+再简单说一下关于Cache接口：
+
+Cache的设计使用了装饰器模式，基本的装饰链是：
+
+SynchronizedCache -> LoggingCache -> SerializedCache -> LruCache -> PerpetualCache。
+具体的过程可以去看CacheBuilder类的build方法；mybatis默认的cache标签type属性是PerpetualCache、eviction是lru,如果要自定义缓存只需要实现Cache接口，并做相应配置即可；
+
+小结
+
+二级缓存的有效范围是namespace，缓存的加载和失效均在事务提交之后生效，使用cache-ref标签可以实现多个namespace共享缓存；
+二级缓存可以根据statement标签的useCache和flushCache 细粒度的控制是否需要使用缓存和强制刷新缓存
+二级缓存的实现相对于一级缓存有明显增强，但是依然是本地实现，解决了多个SqlSession共享缓存的问题，但是仍然无法应用于分布式环境；
+由于是基于namespace的缓存，如果存在多表查询，可能存在数据更新之后此namespace下的缓存还没有失效，也会产生脏数据；
+总的来说，如果不熟悉mybatis的缓存机制，最好是使用第三方缓存；
+
+
+
+
+作者：世界那么大
+
+www.cnblogs.com/fengwbetter
+
+
+
+阅读 485  在看1
+写留言
