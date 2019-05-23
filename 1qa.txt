@@ -1,20 +1,20 @@
-mybatis»º´æ»úÖÆ
+mybatisç¼“å­˜æœºåˆ¶
 
-ºó¶Ë¼¼Êõ¾«Ñ¡  ½ñÌì
-ÌâÍâ»°£º»¶Ó­½«¹«ÖÚºÅÉèÖÃÎªĞÇ±ê£¬¼¼ÊõÎÄÕÂµÚÒ»Ê±¼ä¿´µ½¡£ÎÒÃÇ½«Ò»Èç¼ÈÍù¾«Ñ¡¼¼ÊõºÃÎÄ£¬Ìá¹©ÓĞ¼ÛÖµµÄÔÄ¶Á¡£ÈçÓĞ¶ÁÕßÏëÒªÍ¶¸å£¬¿ÉÒÔÔÚ¹«ÖÚºÅÈÎÒâÎÄÕÂÏÂÁôÑÔ£¬¼¼Êõ²©Ö÷½±Àø·áºñ¡£
-ÍÆ¼öÔÄ¶Á
-1. SpringBoot ÕûºÏÆª
-2. ÊÖĞ´Ò»Ì×ÃÔÄã°æHTTP·şÎñÆ÷
-3. ¼Ç×¡£ºÓÀÔ¶²»ÒªÔÚMySQLÖĞÊ¹ÓÃUTF-8
-4. SpringbootÆô¶¯Ô­Àí½âÎö
+åç«¯æŠ€æœ¯ç²¾é€‰  ä»Šå¤©
+é¢˜å¤–è¯ï¼šæ¬¢è¿å°†å…¬ä¼—å·è®¾ç½®ä¸ºæ˜Ÿæ ‡ï¼ŒæŠ€æœ¯æ–‡ç« ç¬¬ä¸€æ—¶é—´çœ‹åˆ°ã€‚æˆ‘ä»¬å°†ä¸€å¦‚æ—¢å¾€ç²¾é€‰æŠ€æœ¯å¥½æ–‡ï¼Œæä¾›æœ‰ä»·å€¼çš„é˜…è¯»ã€‚å¦‚æœ‰è¯»è€…æƒ³è¦æŠ•ç¨¿ï¼Œå¯ä»¥åœ¨å…¬ä¼—å·ä»»æ„æ–‡ç« ä¸‹ç•™è¨€ï¼ŒæŠ€æœ¯åšä¸»å¥–åŠ±ä¸°åšã€‚
+æ¨èé˜…è¯»
+1. SpringBoot æ•´åˆç¯‡
+2. æ‰‹å†™ä¸€å¥—è¿·ä½ ç‰ˆHTTPæœåŠ¡å™¨
+3. è®°ä½ï¼šæ°¸è¿œä¸è¦åœ¨MySQLä¸­ä½¿ç”¨UTF-8
+4. Springbootå¯åŠ¨åŸç†è§£æ
 
-mybatisÖ§³ÖÒ»¡¢¶ş¼¶»º´æÀ´Ìá¸ß²éÑ¯Ğ§ÂÊ£¬ÄÜ¹»ÕıÈ·µÄÊ¹ÓÃ»º´æµÄÇ°ÌáÊÇÊìÏ¤mybatisµÄ»º´æÊµÏÖÔ­Àí£»
+mybatisæ”¯æŒä¸€ã€äºŒçº§ç¼“å­˜æ¥æé«˜æŸ¥è¯¢æ•ˆç‡ï¼Œèƒ½å¤Ÿæ­£ç¡®çš„ä½¿ç”¨ç¼“å­˜çš„å‰ææ˜¯ç†Ÿæ‚‰mybatisçš„ç¼“å­˜å®ç°åŸç†ï¼›
 
-ÖÚËùÖÜÖª£¬mybatisµÄsqlSession·â×°ÁË¶ÔÊı¾İ¿âµÄÔöÉ¾¸Ä²é²Ù×÷£¬µ«ÊÇÃ¿¸öSqlSession³ÖÓĞ¸÷×ÔµÄExecutor£¬ÕæÕıµÄ²Ù×÷ÊÇÎ¯ÍĞ¸øExecutor²Ù×÷µÄ£¬¶ø»º´æ¹¦ÄÜÒ²Í¬ÑùÊÇ½»¸øÁËExecutorÊµÏÖ£»
+ä¼—æ‰€å‘¨çŸ¥ï¼Œmybatisçš„sqlSessionå°è£…äº†å¯¹æ•°æ®åº“çš„å¢åˆ æ”¹æŸ¥æ“ä½œï¼Œä½†æ˜¯æ¯ä¸ªSqlSessionæŒæœ‰å„è‡ªçš„Executorï¼ŒçœŸæ­£çš„æ“ä½œæ˜¯å§”æ‰˜ç»™Executoræ“ä½œçš„ï¼Œè€Œç¼“å­˜åŠŸèƒ½ä¹ŸåŒæ ·æ˜¯äº¤ç»™äº†Executorå®ç°ï¼›
 
-ExecutorºÍ»º´æ
+Executorå’Œç¼“å­˜
 
-ÏÂÃæ¿´Ò»¶ÎConfigurationÀà´´½¨Ö´ĞĞÆ÷µÄ´úÂë£º
+ä¸‹é¢çœ‹ä¸€æ®µConfigurationç±»åˆ›å»ºæ‰§è¡Œå™¨çš„ä»£ç ï¼š
 
 public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
     executorType = executorType == null ? defaultExecutorType : executorType;
@@ -27,24 +27,24 @@ public Executor newExecutor(Transaction transaction, ExecutorType executorType) 
     } else {
       executor = new SimpleExecutor(this, transaction);
     }
-    //Èç¹û¿ªÆôÁË»º´æÔòÊ¹ÓÃCachingExecutor×°ÊÎ
-    //cacheEnabledÊµ¼ÊÉÏÊÇ¶ş¼¶»º´æ¿ª¹Ø£¬Ä¬ÈÏÒ²ÊÇ¿ªÆôµÄ
-    //Ö»ÊÇ¶ş¼¶»º´æĞèÒª¶îÍâµÄÅäÖÃËùÓĞ²¢²»ÉúĞ§
+    //å¦‚æœå¼€å¯äº†ç¼“å­˜åˆ™ä½¿ç”¨CachingExecutorè£…é¥°
+    //cacheEnabledå®é™…ä¸Šæ˜¯äºŒçº§ç¼“å­˜å¼€å…³ï¼Œé»˜è®¤ä¹Ÿæ˜¯å¼€å¯çš„
+    //åªæ˜¯äºŒçº§ç¼“å­˜éœ€è¦é¢å¤–çš„é…ç½®æ‰€æœ‰å¹¶ä¸ç”Ÿæ•ˆ
     if (cacheEnabled) {
       executor = new CachingExecutor(executor);
     }
     executor = (Executor) interceptorChain.pluginAll(executor);
     return executor;
   }
-mybatis¿ÉÑ¡ÅäÖÃµÄÖ´ĞĞÆ÷ÓĞÈıÖÖ£¬·Ö±ğÊÇSimpleExecutor¡¢ReuseExecutorºÍBatchExecutor£¬Ä¬ÈÏÊÇSimpleExecutor£»³ı´ËÖ®Íâ»¹ÓĞÒ»¸öÖØÒªµÄÖ´ĞĞÆ÷ÊÇCachingExecutor£¬¸ù¾İÃû³Æ¼´¿ÉÍÆ¶ÏËüÓë»º´æÊÇÏà¹ØµÄ£»¿´ÀàÍ¼£º
+mybatiså¯é€‰é…ç½®çš„æ‰§è¡Œå™¨æœ‰ä¸‰ç§ï¼Œåˆ†åˆ«æ˜¯SimpleExecutorã€ReuseExecutorå’ŒBatchExecutorï¼Œé»˜è®¤æ˜¯SimpleExecutorï¼›é™¤æ­¤ä¹‹å¤–è¿˜æœ‰ä¸€ä¸ªé‡è¦çš„æ‰§è¡Œå™¨æ˜¯CachingExecutorï¼Œæ ¹æ®åç§°å³å¯æ¨æ–­å®ƒä¸ç¼“å­˜æ˜¯ç›¸å…³çš„ï¼›çœ‹ç±»å›¾ï¼š
 
 
 
-ÎÒÃÇ·¢ÏÖBaseExecutorºÍCachingExecutorÊµÏÖÁËExecutor½Ó¿Ú£¬BaseExecutorÊÇÒ»¸ö³éÏóÀà£¬ËüÓĞÈı¸ö×ÓÀà£¨Êµ¼ÊÉÏ»¹ÓĞÒ»¸öClosedExecutor£©
+æˆ‘ä»¬å‘ç°BaseExecutorå’ŒCachingExecutorå®ç°äº†Executoræ¥å£ï¼ŒBaseExecutoræ˜¯ä¸€ä¸ªæŠ½è±¡ç±»ï¼Œå®ƒæœ‰ä¸‰ä¸ªå­ç±»ï¼ˆå®é™…ä¸Šè¿˜æœ‰ä¸€ä¸ªClosedExecutorï¼‰
 
-Ò»¼¶»º´æ
+ä¸€çº§ç¼“å­˜
 
-mybatisÒ»¼¶»º´æÊÇÔÚBaseExecutorÖĞÊµÏÖµÄ£¬Ò²Ïàµ±ÓÚÒ»¼¶»º´æÊÇÄ¬ÈÏ¿ªÆôµÄ£»Cache¶ÔÏóÊÇÔÚBaseExecutor¹¹Ôì·½·¨ÖĞ´´½¨µÄ£¬Òò´ËÒ»¸öExecutor¶ÔÓ¦Ò»¸ölocaCache,ÏÂÃæ¿´Ò»ÏÂBaseExecutorÖĞµÄquery·½·¨£º
+mybatisä¸€çº§ç¼“å­˜æ˜¯åœ¨BaseExecutorä¸­å®ç°çš„ï¼Œä¹Ÿç›¸å½“äºä¸€çº§ç¼“å­˜æ˜¯é»˜è®¤å¼€å¯çš„ï¼›Cacheå¯¹è±¡æ˜¯åœ¨BaseExecutoræ„é€ æ–¹æ³•ä¸­åˆ›å»ºçš„ï¼Œå› æ­¤ä¸€ä¸ªExecutorå¯¹åº”ä¸€ä¸ªlocaCache,ä¸‹é¢çœ‹ä¸€ä¸‹BaseExecutorä¸­çš„queryæ–¹æ³•ï¼š
 
  public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
     ErrorContext.instance().resource(ms.getResource()).activity("executing a query").object(ms.getId());
@@ -55,13 +55,13 @@ mybatisÒ»¼¶»º´æÊÇÔÚBaseExecutorÖĞÊµÏÖµÄ£¬Ò²Ïàµ±ÓÚÒ»¼¶»º´æÊÇÄ¬ÈÏ¿ªÆôµÄ£»Cache¶ÔÏó
     List<E> list;
     try {
       queryStack++;
-      //´ÓÒ»¼¶»º´æÖĞÈ¡»º´æ£¨ÎÒÃÇÍ¨³£µÄ²éÑ¯ÖĞÊÇ²»ĞèÒªresultHandlerµÄ£©
+      //ä»ä¸€çº§ç¼“å­˜ä¸­å–ç¼“å­˜ï¼ˆæˆ‘ä»¬é€šå¸¸çš„æŸ¥è¯¢ä¸­æ˜¯ä¸éœ€è¦resultHandlerçš„ï¼‰
       list = resultHandler == null ? (List<E>) localCache.getObject(key) : null;
       if (list != null) {
-        //handleLocallyCachedOutputParametersÕâ¸öÖ»¶Ô´æ´¢¹ı³ÌÓĞĞ§
+        //handleLocallyCachedOutputParametersè¿™ä¸ªåªå¯¹å­˜å‚¨è¿‡ç¨‹æœ‰æ•ˆ
         handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
       } else {
-        //Èç¹ûÎª¿ÕÔò´ÓÊı¾İ¿â²éÑ¯
+        //å¦‚æœä¸ºç©ºåˆ™ä»æ•°æ®åº“æŸ¥è¯¢
         list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
       }
     } finally {
@@ -72,63 +72,63 @@ mybatisÒ»¼¶»º´æÊÇÔÚBaseExecutorÖĞÊµÏÖµÄ£¬Ò²Ïàµ±ÓÚÒ»¼¶»º´æÊÇÄ¬ÈÏ¿ªÆôµÄ£»Cache¶ÔÏó
         deferredLoad.load();
       }
       deferredLoads.clear(); // issue #601
-      //Èç¹ûÒ»¼¶»º´æµÄ·¶Î§ÊÇstatement¼¶±ğ£¬ÔòÃ¿´Î²éÑ¯¶¼Çå¿ÕÒ»¼¶»º´æ
+      //å¦‚æœä¸€çº§ç¼“å­˜çš„èŒƒå›´æ˜¯statementçº§åˆ«ï¼Œåˆ™æ¯æ¬¡æŸ¥è¯¢éƒ½æ¸…ç©ºä¸€çº§ç¼“å­˜
       if (configuration.getLocalCacheScope() == LocalCacheScope.STATEMENT) {
         clearLocalCache(); // issue #482
       }
     }
     return list;
   }
-Òò´Ë£¬ÔÚ²»¿¼ÂÇ¶ş¼¶»º´æµÄÇé¿öÏÂ£¬Ã¿´Î²éÑ¯¶¼´ÓÒ»¼¶»º´æÖĞÈ¡£¬Èç¹ûÃ»ÓĞÃüÖĞ»º´æ£¬Ôò´ÓÊı¾İ¿â²éÑ¯£¬²¢½«²éÑ¯½á¹û¼ÓÈë»º´æ£»ÕâÖ»ÊÇÒ»¼¶»º´æµÄ´æÈ¡£¬½ÓÏÂÀ´»¹ÒªÖªµÀ»º´æºÎÊ±Ê§Ğ§¡£
+å› æ­¤ï¼Œåœ¨ä¸è€ƒè™‘äºŒçº§ç¼“å­˜çš„æƒ…å†µä¸‹ï¼Œæ¯æ¬¡æŸ¥è¯¢éƒ½ä»ä¸€çº§ç¼“å­˜ä¸­å–ï¼Œå¦‚æœæ²¡æœ‰å‘½ä¸­ç¼“å­˜ï¼Œåˆ™ä»æ•°æ®åº“æŸ¥è¯¢ï¼Œå¹¶å°†æŸ¥è¯¢ç»“æœåŠ å…¥ç¼“å­˜ï¼›è¿™åªæ˜¯ä¸€çº§ç¼“å­˜çš„å­˜å–ï¼Œæ¥ä¸‹æ¥è¿˜è¦çŸ¥é“ç¼“å­˜ä½•æ—¶å¤±æ•ˆã€‚
 
-ÆäÊµÎÒÃÇ¿ÉÒÔÍÆ²âÒ»ÏÂ£¬Èç¹ûÊı¾İ¿â¸üĞÂÁË£¬µ«ÊÇ»º´æ²¢Ã»ÓĞÊ§Ğ§£¬ÄÇÃ´»º´æµÄÊı¾İ¾Í³ÉÁËÔàÊı¾İ£¬ËùÒÔ»º´æÊ§Ğ§¿Ï¶¨ºÍ¸üĞÂ²Ù×÷ÓĞ¹Ø£¬µ«ÊÇÕâ¸ö¸üĞÂ¾ÍÓĞ·¶Î§ÁË£¬ÊÇ¸üĞÂ²Ù×÷Çå³ıËùÓĞ»º´æ£¨È«¾Ö£©£¿»¹ÊÇÍ¬Ò»¸öSQLSessionµÄ¸üĞÂ²Ù×÷Çå³ıµ±Ç°SQLSessionµÄ»º´æÄØ£¿
+å…¶å®æˆ‘ä»¬å¯ä»¥æ¨æµ‹ä¸€ä¸‹ï¼Œå¦‚æœæ•°æ®åº“æ›´æ–°äº†ï¼Œä½†æ˜¯ç¼“å­˜å¹¶æ²¡æœ‰å¤±æ•ˆï¼Œé‚£ä¹ˆç¼“å­˜çš„æ•°æ®å°±æˆäº†è„æ•°æ®ï¼Œæ‰€ä»¥ç¼“å­˜å¤±æ•ˆè‚¯å®šå’Œæ›´æ–°æ“ä½œæœ‰å…³ï¼Œä½†æ˜¯è¿™ä¸ªæ›´æ–°å°±æœ‰èŒƒå›´äº†ï¼Œæ˜¯æ›´æ–°æ“ä½œæ¸…é™¤æ‰€æœ‰ç¼“å­˜ï¼ˆå…¨å±€ï¼‰ï¼Ÿè¿˜æ˜¯åŒä¸€ä¸ªSQLSessionçš„æ›´æ–°æ“ä½œæ¸…é™¤å½“å‰SQLSessionçš„ç¼“å­˜å‘¢ï¼Ÿ
 
-Í¨¹ıÎÄµµºÍÔ´ÂëÎÒÃÇÖªµÀLocalCacheScopeÓĞÁ½¸ö¼¶±ğ£¬·Ö±ğÊÇstatementºÍsession£»´Óquery·½·¨ÒÑ¾­ÖªµÀstatement¼¶±ğÃ¿´Î²éÑ¯¶¼Çå³ı»º´æ£¬ÕâÒ²ÊÇÒ»¼¶»º´æÄ¬ÈÏµÄ¼¶±ğ£»
+é€šè¿‡æ–‡æ¡£å’Œæºç æˆ‘ä»¬çŸ¥é“LocalCacheScopeæœ‰ä¸¤ä¸ªçº§åˆ«ï¼Œåˆ†åˆ«æ˜¯statementå’Œsessionï¼›ä»queryæ–¹æ³•å·²ç»çŸ¥é“statementçº§åˆ«æ¯æ¬¡æŸ¥è¯¢éƒ½æ¸…é™¤ç¼“å­˜ï¼Œè¿™ä¹Ÿæ˜¯ä¸€çº§ç¼“å­˜é»˜è®¤çš„çº§åˆ«ï¼›
 
-ÄÇÃ´session¼¶±ğÄØ£¿
+é‚£ä¹ˆsessionçº§åˆ«å‘¢ï¼Ÿ
 
-ÏÂÃæ¿´BaseExecutorµÄupdate·½·¨£¨SqlSesssionµÄinsert¡¢update¡¢delete²Ù×÷×îºó¶¼»áÖ´ĞĞ´Ë·½·¨£©£º
+ä¸‹é¢çœ‹BaseExecutorçš„updateæ–¹æ³•ï¼ˆSqlSesssionçš„insertã€updateã€deleteæ“ä½œæœ€åéƒ½ä¼šæ‰§è¡Œæ­¤æ–¹æ³•ï¼‰ï¼š
 
 public int update(MappedStatement ms, Object parameter) throws SQLException {
     ErrorContext.instance().resource(ms.getResource()).activity("executing an update").object(ms.getId());
     if (closed) throw new ExecutorException("Executor was closed.");
-    //Çå³ı»º´æ
+    //æ¸…é™¤ç¼“å­˜
     clearLocalCache();
     return doUpdate(ms, parameter);
   }
-¿ÉÒÔ¿´µ½Èç¹ûÊÇsession¼¶±ğ£¬ÔÚupdate²Ù×÷µÄÊ±ºòÇå³ı»º´æ£»µ«ÊÇÓĞÁ½µãÒª×¢Òâ£º
+å¯ä»¥çœ‹åˆ°å¦‚æœæ˜¯sessionçº§åˆ«ï¼Œåœ¨updateæ“ä½œçš„æ—¶å€™æ¸…é™¤ç¼“å­˜ï¼›ä½†æ˜¯æœ‰ä¸¤ç‚¹è¦æ³¨æ„ï¼š
 
-Ò»¡¢ÎªÊ²Ã´½Ğ×ösession¼¶±ğ£¿
+ä¸€ã€ä¸ºä»€ä¹ˆå«åšsessionçº§åˆ«ï¼Ÿ
 
-Í¬Ò»¸öSqlSession³ÖÓĞÍ¬Ò»¸öExecutor£¬Í¬Ò»¸öExecutor³ÖÓĞÍ¬Ò»¸öLocalCache,clearLocalCache²Ù×÷Ö»ÊÇÇå³ıµ±Ç°executorµÄ±¾µØ»º´æ£¬Òò´Ësession¼¶±ğµÄ»º´æ¾ÍÊÇ¶ÔÍ¬Ò»¸öSqlSessionÉúĞ§¡£
+åŒä¸€ä¸ªSqlSessionæŒæœ‰åŒä¸€ä¸ªExecutorï¼ŒåŒä¸€ä¸ªExecutoræŒæœ‰åŒä¸€ä¸ªLocalCache,clearLocalCacheæ“ä½œåªæ˜¯æ¸…é™¤å½“å‰executorçš„æœ¬åœ°ç¼“å­˜ï¼Œå› æ­¤sessionçº§åˆ«çš„ç¼“å­˜å°±æ˜¯å¯¹åŒä¸€ä¸ªSqlSessionç”Ÿæ•ˆã€‚
 
-¶ş¡¢»º´æÊ§Ğ§µÄÊ±»ú
+äºŒã€ç¼“å­˜å¤±æ•ˆçš„æ—¶æœº
 
-¿ÉÒÔ¿´µ½Çå³ı»º´æÊÇÔÚdoUpdate£¨ÕæÕıµÄ¸üĞÂ²Ù×÷£©²Ù×÷Ö®Ç°Ö´ĞĞµÄ£¬Ò²¾ÍÊÇËµdoUpdateÖ´ĞĞ³É¹¦»òÊ§°Ü¡¢Ìá½»»òÕß»Ø¹ö »º´æ¶¼»áÊ§Ğ§£»
+å¯ä»¥çœ‹åˆ°æ¸…é™¤ç¼“å­˜æ˜¯åœ¨doUpdateï¼ˆçœŸæ­£çš„æ›´æ–°æ“ä½œï¼‰æ“ä½œä¹‹å‰æ‰§è¡Œçš„ï¼Œä¹Ÿå°±æ˜¯è¯´doUpdateæ‰§è¡ŒæˆåŠŸæˆ–å¤±è´¥ã€æäº¤æˆ–è€…å›æ»š ç¼“å­˜éƒ½ä¼šå¤±æ•ˆï¼›
 
-Ğ¡½á
+å°ç»“
 
-MyBatisÒ»¼¶»º´æÊ¹ÓÃÃ»ÓĞÈİÁ¿ÏŞÖÆµÄHashMap,±È½Ï¼òÂª£»
-statement¼¶±ğµÄ»º´æÃ¿Ò»´Î²éÑ¯ºóÇå³ı£»
-session¼¶±ğ»º´æÔÚÍ¬Ò»¸öSqlSessionµÄinsert¡¢update¡¢delete²Ù×÷Ö®Ç°Çå³ı£»
-MyBatisµÄÒ»¼¶»º´æ×î´óÊÇÍ¬Ò»¸öSqlSession£¬ÔÚ¶à¸öSqlSession»·¾³ÏÂ¾Í»á³öÏÖÊı¾İĞŞ¸Äºó»º´æÎŞ·¨¼°Ê±Ê§Ğ§µÄÇé¿ö²úÉúÔàÊı¾İ£»
-¶ş¼¶»º´æ
+MyBatisä¸€çº§ç¼“å­˜ä½¿ç”¨æ²¡æœ‰å®¹é‡é™åˆ¶çš„HashMap,æ¯”è¾ƒç®€é™‹ï¼›
+statementçº§åˆ«çš„ç¼“å­˜æ¯ä¸€æ¬¡æŸ¥è¯¢åæ¸…é™¤ï¼›
+sessionçº§åˆ«ç¼“å­˜åœ¨åŒä¸€ä¸ªSqlSessionçš„insertã€updateã€deleteæ“ä½œä¹‹å‰æ¸…é™¤ï¼›
+MyBatisçš„ä¸€çº§ç¼“å­˜æœ€å¤§æ˜¯åŒä¸€ä¸ªSqlSessionï¼Œåœ¨å¤šä¸ªSqlSessionç¯å¢ƒä¸‹å°±ä¼šå‡ºç°æ•°æ®ä¿®æ”¹åç¼“å­˜æ— æ³•åŠæ—¶å¤±æ•ˆçš„æƒ…å†µäº§ç”Ÿè„æ•°æ®ï¼›
+äºŒçº§ç¼“å­˜
 
-Ç°ÃæÎÒÃÇÖªµÀ¶ş¼¶»º´æ¿ªÆôºóExecutor»áÊ¹ÓÃCachingExecutor×°ÊÎ£»ÄÇ¾ÍÀ´¿´¿´ËüµÄquery·½·¨£º
+å‰é¢æˆ‘ä»¬çŸ¥é“äºŒçº§ç¼“å­˜å¼€å¯åExecutorä¼šä½¿ç”¨CachingExecutorè£…é¥°ï¼›é‚£å°±æ¥çœ‹çœ‹å®ƒçš„queryæ–¹æ³•ï¼š
 
 public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql)
       throws SQLException {
-    //»ñÈ¡´Ë²éÑ¯¶ÔÓ¦µÄ»º´æ¶ÔÏó
+    //è·å–æ­¤æŸ¥è¯¢å¯¹åº”çš„ç¼“å­˜å¯¹è±¡
     Cache cache = ms.getCache();
     if (cache != null) {
-      //ÊÇ·ñÁ¢¼´Çå³ı»º´æ£¬Õâ¸öÊÇstatement±êÇ©ÖĞflushCacheÊôĞÔ¿ØÖÆµÄ£¬select±êÇ©Ä¬ÈÏfalse£¬ÆäËü±êÇ©Ä¬ÈÏtrue£»
+      //æ˜¯å¦ç«‹å³æ¸…é™¤ç¼“å­˜ï¼Œè¿™ä¸ªæ˜¯statementæ ‡ç­¾ä¸­flushCacheå±æ€§æ§åˆ¶çš„ï¼Œselectæ ‡ç­¾é»˜è®¤falseï¼Œå…¶å®ƒæ ‡ç­¾é»˜è®¤trueï¼›
       flushCacheIfRequired(ms);
       if (ms.isUseCache() && resultHandler == null) {
-        //¹ØÓÚ´æ´¢¹ı³ÌÔİ²»¿¼ÂÇ
-        //isUseCache()µÄÖµÊÇstatement±êÇ©ÖĞuseCacheÅäÖÃµÄ£¬Ä¬ÈÏÎªtrue
+        //å…³äºå­˜å‚¨è¿‡ç¨‹æš‚ä¸è€ƒè™‘
+        //isUseCache()çš„å€¼æ˜¯statementæ ‡ç­¾ä¸­useCacheé…ç½®çš„ï¼Œé»˜è®¤ä¸ºtrue
         ensureNoOutParams(ms, parameterObject, boundSql);
         @SuppressWarnings("unchecked")
-        //´Ó¶ş¼¶»º´æ»ñÈ¡
+        //ä»äºŒçº§ç¼“å­˜è·å–
         List<E> list = (List<E>) tcm.getObject(cache, key);
         if (list == null) {
           list = delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
@@ -139,30 +139,30 @@ public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds r
     }
     return delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
   }
-ÕâÀï´Ó²éÑ¯»º´æºÍ¼ÓÈë»º´æÓÃµÄÊÇtcm£¨TransactionalCacheManager£©µÄgetObjectºÍputObject·½·¨£¬ÉÔÉÔ¿´Ò»ÏÂÕâ¸öÀà£º
+è¿™é‡Œä»æŸ¥è¯¢ç¼“å­˜å’ŒåŠ å…¥ç¼“å­˜ç”¨çš„æ˜¯tcmï¼ˆTransactionalCacheManagerï¼‰çš„getObjectå’ŒputObjectæ–¹æ³•ï¼Œç¨ç¨çœ‹ä¸€ä¸‹è¿™ä¸ªç±»ï¼š
 
   public class TransactionalCacheManager {
-  //Î¬»¤TransactionalCache ºÍ Cache Ò»¶ÔÒ»µÄÕâÑùÒ»¸öÓ³Éä¹ØÏµ
+  //ç»´æŠ¤TransactionalCache å’Œ Cache ä¸€å¯¹ä¸€çš„è¿™æ ·ä¸€ä¸ªæ˜ å°„å…³ç³»
   private Map<Cache, TransactionalCache> transactionalCaches = new HashMap<Cache, TransactionalCache>();
-  //Çå³ı»º´æ
+  //æ¸…é™¤ç¼“å­˜
   public void clear(Cache cache) {
     getTransactionalCache(cache).clear();
   }
-  //´Ó»º´æ»ñÈ¡½á¹û
+  //ä»ç¼“å­˜è·å–ç»“æœ
   public Object getObject(Cache cache, CacheKey key) {
     return getTransactionalCache(cache).getObject(key);
   }
-  //¼ÓÈë»º´æ£¨ÕæÕı¼ÓÈë»¹ÒªµÈcommit£©
+  //åŠ å…¥ç¼“å­˜ï¼ˆçœŸæ­£åŠ å…¥è¿˜è¦ç­‰commitï¼‰
   public void putObject(Cache cache, CacheKey key, Object value) {
     getTransactionalCache(cache).putObject(key, value);
   }
-   //Ê¡ÂÔÒ»²¿·Ö
-   ¡£¡£¡£¡£¡£¡£¡£
+   //çœç•¥ä¸€éƒ¨åˆ†
+   ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
 
   private TransactionalCache getTransactionalCache(Cache cache) {
     TransactionalCache txCache = transactionalCaches.get(cache);
     if (txCache == null) {
-      //Ê¹ÓÃTransactionalCache×°ÊÎCache
+      //ä½¿ç”¨TransactionalCacheè£…é¥°Cache
       txCache = new TransactionalCache(cache);
       transactionalCaches.put(cache, txCache);
     }
@@ -170,31 +170,31 @@ public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds r
   }
 
 }
-ÕâÀïÎÒÃÇÖ»ĞèÒªÖªµÀ¹ØÓÚ»º´æµÄ²Ù×÷×îÖÕ»¹ÊÇÎ¯ÍĞ¸øCacheÀàµÄ£¬ÆäËüµÄÔİ²»ÉîÈë£¬»Øµ½CacheExecutorÀà£¬Cache¶ÔÏóÊÇ´ÓMappedStatement£¨¶ÔÓ¦¾ÍÊÇselect¡¢updateµÈsql±êÇ©£©ÖĞ»ñÈ¡µÄ£¬¶øCacheÒ²²»ÊÇÔÚMappedStatementÖĞ´´½¨µÄ£¬µ«ÊÇÎÒÃÇÖªµÀmybatisµÄnamespaceÖĞ¹ØÓÚ»º´æÓĞÈçÏÂÁ½¸ö±êÇ©£º
+è¿™é‡Œæˆ‘ä»¬åªéœ€è¦çŸ¥é“å…³äºç¼“å­˜çš„æ“ä½œæœ€ç»ˆè¿˜æ˜¯å§”æ‰˜ç»™Cacheç±»çš„ï¼Œå…¶å®ƒçš„æš‚ä¸æ·±å…¥ï¼Œå›åˆ°CacheExecutorç±»ï¼ŒCacheå¯¹è±¡æ˜¯ä»MappedStatementï¼ˆå¯¹åº”å°±æ˜¯selectã€updateç­‰sqlæ ‡ç­¾ï¼‰ä¸­è·å–çš„ï¼Œè€ŒCacheä¹Ÿä¸æ˜¯åœ¨MappedStatementä¸­åˆ›å»ºçš„ï¼Œä½†æ˜¯æˆ‘ä»¬çŸ¥é“mybatisçš„namespaceä¸­å…³äºç¼“å­˜æœ‰å¦‚ä¸‹ä¸¤ä¸ªæ ‡ç­¾ï¼š
 
-//±íÊ¾´ËnamespaceÒªÊ¹ÓÃ¶ş¼¶»º´æ
+//è¡¨ç¤ºæ­¤namespaceè¦ä½¿ç”¨äºŒçº§ç¼“å­˜
 <cache/>
-ÊôĞÔ
-type£ºcacheÊ¹ÓÃµÄÀàĞÍ£¬Ä¬ÈÏÊÇPerpetualCache£»
-eviction£º »º´æ²ßÂÔ£¬³£¼ûµÄÓĞFIFO£¬LRU£»
-flushInterval£º ×Ô¶¯Ë¢ĞÂ»º´æÊ±¼ä¼ä¸ô£¬µ¥Î»ÊÇºÁÃë¡£
-size£º »º´æµÄ¶ÔÏóÊıÁ¿×î´óÖµ¡£
-readOnly£º ÊÇ·ñÖ»¶Á£¬falseÊ±ĞèÒªÊµÏÖSerializable½Ó¿Ú£¬Ä¬ÈÏfalse¡£
-blocking£º Èô»º´æÖĞÕÒ²»µ½¶ÔÓ¦µÄkey£¬ÊÇ·ñ»áÒ»Ö±blocking£¬Ö±µ½ÓĞ¶ÔÓ¦µÄÊı¾İ½øÈë»º´æ¡£
-//ÒıÓÃÆäËünamespaceµÄ»º´æ
+å±æ€§
+typeï¼šcacheä½¿ç”¨çš„ç±»å‹ï¼Œé»˜è®¤æ˜¯PerpetualCacheï¼›
+evictionï¼š ç¼“å­˜ç­–ç•¥ï¼Œå¸¸è§çš„æœ‰FIFOï¼ŒLRUï¼›
+flushIntervalï¼š è‡ªåŠ¨åˆ·æ–°ç¼“å­˜æ—¶é—´é—´éš”ï¼Œå•ä½æ˜¯æ¯«ç§’ã€‚
+sizeï¼š ç¼“å­˜çš„å¯¹è±¡æ•°é‡æœ€å¤§å€¼ã€‚
+readOnlyï¼š æ˜¯å¦åªè¯»ï¼Œfalseæ—¶éœ€è¦å®ç°Serializableæ¥å£ï¼Œé»˜è®¤falseã€‚
+blockingï¼š è‹¥ç¼“å­˜ä¸­æ‰¾ä¸åˆ°å¯¹åº”çš„keyï¼Œæ˜¯å¦ä¼šä¸€ç›´blockingï¼Œç›´åˆ°æœ‰å¯¹åº”çš„æ•°æ®è¿›å…¥ç¼“å­˜ã€‚
+//å¼•ç”¨å…¶å®ƒnamespaceçš„ç¼“å­˜
 <cache-ref namespace="mapper.StudentMapper"/>
-¿ÉÒÔ²Â²â£¬CacheµÄ´´½¨ÔÚ½âÎönamespace±êÇ©Ö®ºó£¬ËùÒÔ´ÓXmlConfigBuilder£¨½âÎöÅäÖÃÎÄ¼şµÄ¹Ø¼üÀà£©Ò»Â·ÕÒµ½XMLMapperBuilder£¨¸ù¾İÃû³Æ¾ÍÖªµÀÊÇ½âÎömapperÏà¹ØµÄÅäÖÃÒ²¾ÍÊÇnamespace±êÇ©ÏÂµÄÄÚÈİ£©£º
+å¯ä»¥çŒœæµ‹ï¼ŒCacheçš„åˆ›å»ºåœ¨è§£ænamespaceæ ‡ç­¾ä¹‹åï¼Œæ‰€ä»¥ä»XmlConfigBuilderï¼ˆè§£æé…ç½®æ–‡ä»¶çš„å…³é”®ç±»ï¼‰ä¸€è·¯æ‰¾åˆ°XMLMapperBuilderï¼ˆæ ¹æ®åç§°å°±çŸ¥é“æ˜¯è§£æmapperç›¸å…³çš„é…ç½®ä¹Ÿå°±æ˜¯namespaceæ ‡ç­¾ä¸‹çš„å†…å®¹ï¼‰ï¼š
 
- //´´½¨»º´æ¶ÔÏó 
+ //åˆ›å»ºç¼“å­˜å¯¹è±¡ 
   private void cacheElement(XNode context) throws Exception {
     if (context != null) {
-      //»ñÈ¡<cache/>±êÇ©ÅäÖÃ
+      //è·å–<cache/>æ ‡ç­¾é…ç½®
       ....
-      //´´½¨Cache¶ÔÏó
+      //åˆ›å»ºCacheå¯¹è±¡
       builderAssistant.useNewCache(typeClass, evictionClass, flushInterval, size, readWrite, props);
     }
   }
-½Ó×Å¿´builderAssistantµÄuseNewCache·½·¨£º
+æ¥ç€çœ‹builderAssistantçš„useNewCacheæ–¹æ³•ï¼š
 
 public Cache useNewCache(Class<? extends Cache> typeClass,
      Class<? extends Cache> evictionClass,
@@ -204,7 +204,7 @@ public Cache useNewCache(Class<? extends Cache> typeClass,
      Properties props) {
    typeClass = valueOrDefault(typeClass, PerpetualCache.class);
    evictionClass = valueOrDefault(evictionClass, LruCache.class);
-   //½«namespace×÷ÎªCacheµÄid
+   //å°†namespaceä½œä¸ºCacheçš„id
    Cache cache = new CacheBuilder(currentNamespace)
        .implementation(typeClass)
        .addDecorator(evictionClass)
@@ -213,13 +213,13 @@ public Cache useNewCache(Class<? extends Cache> typeClass,
        .readWrite(readWrite)
        .properties(props)
        .build();
-   //½«Cache·ÅÈëConfigurationÖĞ
-   //ConfigurationÖĞÎ¬»¤Ò»¸öMap£¬¼üÊÇCacheµÄidÒ²¾ÍÊÇnamespace
+   //å°†Cacheæ”¾å…¥Configurationä¸­
+   //Configurationä¸­ç»´æŠ¤ä¸€ä¸ªMapï¼Œé”®æ˜¯Cacheçš„idä¹Ÿå°±æ˜¯namespace
    configuration.addCache(cache);
    currentCache = cache;
    return cache;
  }
-ÕâÀïÎÒÃÇÖªµÀ½âÎönamespaceµÄcache±êÇ©ÂíÉÏ»áÎª´Ënamespace´´½¨Ò»¸öCache¶ÔÏó£»ÄÇÃ´cache-ref±êÇ©ÄØ£¿Í¬ÑùÊÇXMLMapperBuilderÀà£º
+è¿™é‡Œæˆ‘ä»¬çŸ¥é“è§£ænamespaceçš„cacheæ ‡ç­¾é©¬ä¸Šä¼šä¸ºæ­¤namespaceåˆ›å»ºä¸€ä¸ªCacheå¯¹è±¡ï¼›é‚£ä¹ˆcache-refæ ‡ç­¾å‘¢ï¼ŸåŒæ ·æ˜¯XMLMapperBuilderç±»ï¼š
 
 private void cacheRefElement(XNode context) {
     if (context != null) {
@@ -232,13 +232,13 @@ private void cacheRefElement(XNode context) {
       }
     }
   }
-ConfigurationÀàÓĞÒ»¸ömap±£´æµÄÊÇcache-ref±êÇ©ÉùÃ÷µÄÒıÓÃ¹ØÏµ£¬CacheRefResolver¾ÍÊÇÈ¥»ñÈ¡ÒıÓÃµÄnamespaceµÄCache¶ÔÏó£¬ÕâÊ±Èç¹ûÒıÓÃµÄCache»¹Ã»ÓĞ´´½¨ÔõÃ´°ì£¿
+Configurationç±»æœ‰ä¸€ä¸ªmapä¿å­˜çš„æ˜¯cache-refæ ‡ç­¾å£°æ˜çš„å¼•ç”¨å…³ç³»ï¼ŒCacheRefResolverå°±æ˜¯å»è·å–å¼•ç”¨çš„namespaceçš„Cacheå¯¹è±¡ï¼Œè¿™æ—¶å¦‚æœå¼•ç”¨çš„Cacheè¿˜æ²¡æœ‰åˆ›å»ºæ€ä¹ˆåŠï¼Ÿ
 
-mybatisÊÇ½«Ëü·ÅÔÚÁËIncompleteCacheRefµÄ¼¯ºÏÖĞ£¬×îºóÔÙÈ¥ÖØĞÂÈ¥´¦ÀíÒıÓÃ£»µ½ÕâÀïÎÒÃÇÖªµÀÁËCacheµÄ´´½¨£¬µ«ÊÇÎÒ»¹¼ÇµÃCacheExecutorÖĞµÄCacheÊÇ´ÓMappedStatementÖĞÈ¡µÄ°¡£¡
+mybatisæ˜¯å°†å®ƒæ”¾åœ¨äº†IncompleteCacheRefçš„é›†åˆä¸­ï¼Œæœ€åå†å»é‡æ–°å»å¤„ç†å¼•ç”¨ï¼›åˆ°è¿™é‡Œæˆ‘ä»¬çŸ¥é“äº†Cacheçš„åˆ›å»ºï¼Œä½†æ˜¯æˆ‘è¿˜è®°å¾—CacheExecutorä¸­çš„Cacheæ˜¯ä»MappedStatementä¸­å–çš„å•Šï¼
 
-ÄÇÊÇÒòÎªXMLStatementBuilderÔÚ´´½¨namespaceÏÂµÄMappedStatementÊ±ºò¾Í½«XMLMapperBuilderÖĞ´´½¨µÄCache×¢ÈëÆäÖĞÁË£¬Òò´ËÍ¬Ò»¸önamespaceÏÂµÄMappedStatement³ÖÓĞµÄÊÇÍ¬Ò»¸öCache¶ÔÏó£¬Èç¹ûnamespaceÖ®¼äÊÇÒıÓÃ¹ØÏµ£¬ÄÇÃ´Ò²ÊÇÍ¬Ò»¸öCache¶ÔÏó£»µ½ÕâÀïÒÑ¾­ÅªÇå³şÁËMappedStatementÖĞCacheµÄÀ´Àú£»
+é‚£æ˜¯å› ä¸ºXMLStatementBuilderåœ¨åˆ›å»ºnamespaceä¸‹çš„MappedStatementæ—¶å€™å°±å°†XMLMapperBuilderä¸­åˆ›å»ºçš„Cacheæ³¨å…¥å…¶ä¸­äº†ï¼Œå› æ­¤åŒä¸€ä¸ªnamespaceä¸‹çš„MappedStatementæŒæœ‰çš„æ˜¯åŒä¸€ä¸ªCacheå¯¹è±¡ï¼Œå¦‚æœnamespaceä¹‹é—´æ˜¯å¼•ç”¨å…³ç³»ï¼Œé‚£ä¹ˆä¹Ÿæ˜¯åŒä¸€ä¸ªCacheå¯¹è±¡ï¼›åˆ°è¿™é‡Œå·²ç»å¼„æ¸…æ¥šäº†MappedStatementä¸­Cacheçš„æ¥å†ï¼›
 
-ÔÙ»Øµ½CachingExecutorÖĞµÄÇå³ı»º´æµÄ·½·¨£º
+å†å›åˆ°CachingExecutorä¸­çš„æ¸…é™¤ç¼“å­˜çš„æ–¹æ³•ï¼š
 
  private void flushCacheIfRequired(MappedStatement ms) {
     Cache cache = ms.getCache();
@@ -246,16 +246,16 @@ mybatisÊÇ½«Ëü·ÅÔÚÁËIncompleteCacheRefµÄ¼¯ºÏÖĞ£¬×îºóÔÙÈ¥ÖØĞÂÈ¥´¦ÀíÒıÓÃ£»µ½ÕâÀïÎÒÃ
       tcm.clear(cache);
     }
   }
-ms.isFlushCacheRequired()µÄÖµÊÇstatement±êÇ©ÖĞflushCacheÊôĞÔ¿ØÖÆµÄ£¬select±êÇ©Ä¬ÈÏfalse£¬ÆäËü±êÇ©Ä¬ÈÏtrue£»
+ms.isFlushCacheRequired()çš„å€¼æ˜¯statementæ ‡ç­¾ä¸­flushCacheå±æ€§æ§åˆ¶çš„ï¼Œselectæ ‡ç­¾é»˜è®¤falseï¼Œå…¶å®ƒæ ‡ç­¾é»˜è®¤trueï¼›
 
-ÕâÀïclear·½·¨²¢Ã»ÓĞÇå³ı»º´æ£¬¶øÊÇÉèÖÃÁËÒ»¸ö±êÖ¾Î» clearOnCommit = true;¹ËÃûË¼ÒåÔÚÌá½»µÄÊ±ºòÇå³ı£»³ı´ËÖ®Íâ£¬tcm£¨TransactionalCacheManager£©µÄputºÍremove²Ù×÷Ò²Ö»ÊÇ½«¶¯×÷ÁÙÊ±´æ·ÅÔÚmapÖĞ,commit µÄÊ±ºò²ÅÕæÕıÖ´ĞĞ£º
+è¿™é‡Œclearæ–¹æ³•å¹¶æ²¡æœ‰æ¸…é™¤ç¼“å­˜ï¼Œè€Œæ˜¯è®¾ç½®äº†ä¸€ä¸ªæ ‡å¿—ä½ clearOnCommit = true;é¡¾åæ€ä¹‰åœ¨æäº¤çš„æ—¶å€™æ¸…é™¤ï¼›é™¤æ­¤ä¹‹å¤–ï¼Œtcmï¼ˆTransactionalCacheManagerï¼‰çš„putå’Œremoveæ“ä½œä¹Ÿåªæ˜¯å°†åŠ¨ä½œä¸´æ—¶å­˜æ”¾åœ¨mapä¸­,commit çš„æ—¶å€™æ‰çœŸæ­£æ‰§è¡Œï¼š
 
 public void commit() {
     if (clearOnCommit) {
-      //Çå³ı»º´æ    
+      //æ¸…é™¤ç¼“å­˜    
       delegate.clear();
     } else {
-      //Ö´ĞĞÔİ´æµÄ²Ù×÷
+      //æ‰§è¡Œæš‚å­˜çš„æ“ä½œ
       for (RemoveEntry entry : entriesToRemoveOnCommit.values()) {
         entry.commit();
       }
@@ -265,33 +265,22 @@ public void commit() {
     }
     reset();
   }
- //rollbackÖØÖÃ£¬²»¶Ô»º´æ²Ù×÷
+ //rollbacké‡ç½®ï¼Œä¸å¯¹ç¼“å­˜æ“ä½œ
  public void rollback() {
     reset();
   }
-ÔÙ¼òµ¥ËµÒ»ÏÂ¹ØÓÚCache½Ó¿Ú£º
+å†ç®€å•è¯´ä¸€ä¸‹å…³äºCacheæ¥å£ï¼š
 
-CacheµÄÉè¼ÆÊ¹ÓÃÁË×°ÊÎÆ÷Ä£Ê½£¬»ù±¾µÄ×°ÊÎÁ´ÊÇ£º
+Cacheçš„è®¾è®¡ä½¿ç”¨äº†è£…é¥°å™¨æ¨¡å¼ï¼ŒåŸºæœ¬çš„è£…é¥°é“¾æ˜¯ï¼š
 
-SynchronizedCache -> LoggingCache -> SerializedCache -> LruCache -> PerpetualCache¡£
-¾ßÌåµÄ¹ı³Ì¿ÉÒÔÈ¥¿´CacheBuilderÀàµÄbuild·½·¨£»mybatisÄ¬ÈÏµÄcache±êÇ©typeÊôĞÔÊÇPerpetualCache¡¢evictionÊÇlru,Èç¹ûÒª×Ô¶¨Òå»º´æÖ»ĞèÒªÊµÏÖCache½Ó¿Ú£¬²¢×öÏàÓ¦ÅäÖÃ¼´¿É£»
+SynchronizedCache -> LoggingCache -> SerializedCache -> LruCache -> PerpetualCacheã€‚
+å…·ä½“çš„è¿‡ç¨‹å¯ä»¥å»çœ‹CacheBuilderç±»çš„buildæ–¹æ³•ï¼›mybatisé»˜è®¤çš„cacheæ ‡ç­¾typeå±æ€§æ˜¯PerpetualCacheã€evictionæ˜¯lru,å¦‚æœè¦è‡ªå®šä¹‰ç¼“å­˜åªéœ€è¦å®ç°Cacheæ¥å£ï¼Œå¹¶åšç›¸åº”é…ç½®å³å¯ï¼›
 
-Ğ¡½á
+å°ç»“
 
-¶ş¼¶»º´æµÄÓĞĞ§·¶Î§ÊÇnamespace£¬»º´æµÄ¼ÓÔØºÍÊ§Ğ§¾ùÔÚÊÂÎñÌá½»Ö®ºóÉúĞ§£¬Ê¹ÓÃcache-ref±êÇ©¿ÉÒÔÊµÏÖ¶à¸önamespace¹²Ïí»º´æ£»
-¶ş¼¶»º´æ¿ÉÒÔ¸ù¾İstatement±êÇ©µÄuseCacheºÍflushCache Ï¸Á£¶ÈµÄ¿ØÖÆÊÇ·ñĞèÒªÊ¹ÓÃ»º´æºÍÇ¿ÖÆË¢ĞÂ»º´æ
-¶ş¼¶»º´æµÄÊµÏÖÏà¶ÔÓÚÒ»¼¶»º´æÓĞÃ÷ÏÔÔöÇ¿£¬µ«ÊÇÒÀÈ»ÊÇ±¾µØÊµÏÖ£¬½â¾öÁË¶à¸öSqlSession¹²Ïí»º´æµÄÎÊÌâ£¬µ«ÊÇÈÔÈ»ÎŞ·¨Ó¦ÓÃÓÚ·Ö²¼Ê½»·¾³£»
-ÓÉÓÚÊÇ»ùÓÚnamespaceµÄ»º´æ£¬Èç¹û´æÔÚ¶à±í²éÑ¯£¬¿ÉÄÜ´æÔÚÊı¾İ¸üĞÂÖ®ºó´ËnamespaceÏÂµÄ»º´æ»¹Ã»ÓĞÊ§Ğ§£¬Ò²»á²úÉúÔàÊı¾İ£»
-×ÜµÄÀ´Ëµ£¬Èç¹û²»ÊìÏ¤mybatisµÄ»º´æ»úÖÆ£¬×îºÃÊÇÊ¹ÓÃµÚÈı·½»º´æ£»
+äºŒçº§ç¼“å­˜çš„æœ‰æ•ˆèŒƒå›´æ˜¯namespaceï¼Œç¼“å­˜çš„åŠ è½½å’Œå¤±æ•ˆå‡åœ¨äº‹åŠ¡æäº¤ä¹‹åç”Ÿæ•ˆï¼Œä½¿ç”¨cache-refæ ‡ç­¾å¯ä»¥å®ç°å¤šä¸ªnamespaceå…±äº«ç¼“å­˜ï¼›
+äºŒçº§ç¼“å­˜å¯ä»¥æ ¹æ®statementæ ‡ç­¾çš„useCacheå’ŒflushCache ç»†ç²’åº¦çš„æ§åˆ¶æ˜¯å¦éœ€è¦ä½¿ç”¨ç¼“å­˜å’Œå¼ºåˆ¶åˆ·æ–°ç¼“å­˜
+äºŒçº§ç¼“å­˜çš„å®ç°ç›¸å¯¹äºä¸€çº§ç¼“å­˜æœ‰æ˜æ˜¾å¢å¼ºï¼Œä½†æ˜¯ä¾ç„¶æ˜¯æœ¬åœ°å®ç°ï¼Œè§£å†³äº†å¤šä¸ªSqlSessionå…±äº«ç¼“å­˜çš„é—®é¢˜ï¼Œä½†æ˜¯ä»ç„¶æ— æ³•åº”ç”¨äºåˆ†å¸ƒå¼ç¯å¢ƒï¼›
+ç”±äºæ˜¯åŸºäºnamespaceçš„ç¼“å­˜ï¼Œå¦‚æœå­˜åœ¨å¤šè¡¨æŸ¥è¯¢ï¼Œå¯èƒ½å­˜åœ¨æ•°æ®æ›´æ–°ä¹‹åæ­¤namespaceä¸‹çš„ç¼“å­˜è¿˜æ²¡æœ‰å¤±æ•ˆï¼Œä¹Ÿä¼šäº§ç”Ÿè„æ•°æ®ï¼›
+æ€»çš„æ¥è¯´ï¼Œå¦‚æœä¸ç†Ÿæ‚‰mybatisçš„ç¼“å­˜æœºåˆ¶ï¼Œæœ€å¥½æ˜¯ä½¿ç”¨ç¬¬ä¸‰æ–¹ç¼“å­˜ï¼›
 
-
-
-
-×÷Õß£ºÊÀ½çÄÇÃ´´ó
-
-www.cnblogs.com/fengwbetter
-
-
-
-ÔÄ¶Á 485  ÔÚ¿´1
-Ğ´ÁôÑÔ
